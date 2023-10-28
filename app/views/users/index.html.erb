@@ -1,0 +1,32 @@
+<div class="user-list">
+  <div class="header-list">
+    <h1 class="">User List</h1>
+    <div>
+      <%= form_with(url: import_users_path, local: true, html: { multipart: true }) do |form| %>
+        <%= form.file_field :excel_file %>
+        <%= form.submit 'Upload Excel File' %>
+      <% end %>
+    </div>
+  </div>
+  <table>
+    <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email Id</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name %></td>
+      <td><%= user.email_id %></td>
+
+
+
+    </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
